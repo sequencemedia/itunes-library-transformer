@@ -5,7 +5,7 @@
 .DS_Store
 
 # Development
-Library.xml
+*.xml
 
 # Babel
 /lib
