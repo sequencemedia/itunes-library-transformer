@@ -23,6 +23,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "@sequencemedia/itunes-library-stream": "github:sequencemedia/itunes-library-stream#master"
+    "@sequencemedia/itunes-library-stream": "github:sequencemedia/itunes-library-stream#master",
+    "fs-extra": "^7.0.1"
   }
 }

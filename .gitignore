@@ -6,6 +6,8 @@
 
 # Development
 *.xml
+/m3u
 
 # Babel
 /lib
+
