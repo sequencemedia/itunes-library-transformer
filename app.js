@@ -6,8 +6,4 @@ require('@babel/register')({
 
 const { app } = require('./src')
 
-console.log('?')
-
 app()
-
-console.log('.')

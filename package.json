@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@sequencemedia/itunes-library-stream": "github:sequencemedia/itunes-library-stream#master",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "userhome": "^1.0.0"
   }
 }
