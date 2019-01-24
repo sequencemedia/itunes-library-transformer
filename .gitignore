@@ -6,7 +6,7 @@
 
 # Development
 *.xml
-/m3u
+/iTunes Library
 
 # Babel
 /lib
