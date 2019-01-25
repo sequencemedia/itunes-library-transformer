@@ -1,4 +1,4 @@
-import { createWriteStream } from 'fs'
+import { writeFile } from 'fs'
 import { resolve } from 'path'
 import { ensureFile } from 'fs-extra'
 import { unescape } from 'querystring'
@@ -26,12 +26,8 @@ export const transformPlaylistsToM3U8 = (destination, ext) => ({ [LIBRARY]: libr
           if (e) {
             console.error(e)
           } else {
-            const stream = createWriteStream(filePath, 'utf8')
-
-            stream.write(`#EXTM3U\n`)
-
-            playlist.get('Playlist Items')
-              .forEach((item) => {
+            const fileData = Array.from(playlist.get('Playlist Items'))
+              .map((item) => {
                 const id = item.get('Track ID')
 
                 const track = tracks.get(id)
@@ -41,12 +37,16 @@ export const transformPlaylistsToM3U8 = (destination, ext) => ({ [LIBRARY]: libr
                 const artist = track.get('Artist') || track.get('Album Artist')
                 const file = unescape((track.get('Location') || '').replace('file://', ''))
 
-                const fileData = `#EXTINF:${time},${name} - ${artist}\n${file}\n`
-
-                stream.write(fileData)
+                return (
+                  `#EXTINF:${time},${name} - ${artist}\n${file}`
+                )
               })
 
-            stream.end()
+            writeFile(filePath, `#EXTM3U\n${fileData.join('\n')}`, 'utf8', (e) => {
+              if (e) {
+                console.error(e)
+              }
+            })
           }
         })
       })
