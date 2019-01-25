@@ -1,5 +1,5 @@
 export const normalise = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-export const normaliseForFilePath = (s) => normalise(s.replace(/["*/:<>?\\|]/g, '_'))
+export const normaliseForFilePath = (s) => normalise(s.replace(/\\|\[|\]|[%"*/:<>?|]/g, '_'))
 
 export const filterByPlaylist = (p) => (playlist) => playlist === p
 export const filterByPlaylistId = (id) => (playlist) => playlist.get('Playlist Persistent ID') === id

@@ -1,4 +1,4 @@
-import { writeFile, appendFile } from 'fs'
+import { writeFile, appendFileSync } from 'fs'
 import { resolve } from 'path'
 import { ensureFile } from 'fs-extra'
 import { unescape } from 'querystring'
@@ -112,11 +112,11 @@ export const transformAlbumsToM3U8 = (destination, ext) => ({ [TRACKS]: tracks }
 
                             const fileData = `#EXTINF:${time},${name} - ${artist}\n${file}\n`
 
-                            appendFile(filePath, fileData, (e) => {
-                              if (e) {
-                                console.error(e)
-                              }
-                            })
+                            try {
+                              appendFileSync(filePath, fileData)
+                            } catch (e) {
+                              console.error(e)
+                            }
                           })
                       })
                   })
