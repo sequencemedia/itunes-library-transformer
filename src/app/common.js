@@ -22,7 +22,7 @@ export const getFileName = (playlist, playlists) => {
     .filter(filterByName(name))
 
   return (array.length > 1)
-    ? `${normaliseForFilePath(name)} [${array.findIndex(filterByPlaylist(playlist)) + 1}]`
+    ? `${normaliseForFilePath(name)} (${array.findIndex(filterByPlaylist(playlist)) + 1})`
     : normaliseForFilePath(name)
 }
 

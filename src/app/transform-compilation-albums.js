@@ -31,6 +31,52 @@ export const transformCompilationAlbumsToM3U8 = (destination, ext) => ({ [TRACKS
       .sort()
       .forEach((album) => {
         const filePath = resolve(`${destination}/Tracks/Compilations/${normaliseForFilePath(album)}.${ext}`)
+        const byCompilationAlbum = compilationAlbums
+          .filter((track) => normalise(track.get('Album')) === album)
+
+        const fileData = byCompilationAlbum
+          .reduce((accumulator, current) => {
+            const n = Number(current.get('Disc Number'))
+
+            return accumulator.includes(n) ? accumulator : accumulator.concat(n)
+          }, [])
+          .sort(sortAsNumber)
+          .map((discNumber) => {
+            const byDiscNumber = byCompilationAlbum
+              .filter((track) => Number(track.get('Disc Number')) === discNumber)
+
+            const fileData = byDiscNumber
+              .reduce((accumulator, current) => {
+                const n = Number(current.get('Track Number'))
+
+                return accumulator.includes(n) ? accumulator : accumulator.concat(n)
+              }, [])
+              .sort(sortAsNumber)
+              .map((trackNumber) => {
+                const byTrackNumber = byDiscNumber
+                  .filter((track) => Number(track.get('Track Number')) === trackNumber)
+
+                const fileData = byTrackNumber
+                  .map((track) => {
+                    const time = parseInt(track.get('Total Time') / 1000, 10) || -1
+                    const name = track.get('Name')
+                    const artist = track.get('Artist')
+                    const file = unescape((track.get('Location') || '').replace('file://', ''))
+
+                    return (
+                      `#EXTINF:${time},${name} - ${artist}\n${file}`
+                    )
+                  })
+
+                return (
+                  fileData.join('\n')
+                )
+              })
+
+            return (
+              fileData.join('\n')
+            )
+          })
 
         ensureFile(filePath, (e) => {
           if (e) {
@@ -39,54 +85,11 @@ export const transformCompilationAlbumsToM3U8 = (destination, ext) => ({ [TRACKS
             return
           }
 
-          const byCompilationAlbum = compilationAlbums
-            .filter((track) => normalise(track.get('Album')) === album)
-
-          byCompilationAlbum
-            .reduce((accumulator, current) => {
-              const n = Number(current.get('Disc Number'))
-
-              return accumulator.includes(n) ? accumulator : accumulator.concat(n)
-            }, [])
-            .sort(sortAsNumber)
-            .forEach((discNumber) => {
-              const byDiscNumber = byCompilationAlbum
-                .filter((track) => Number(track.get('Disc Number')) === discNumber)
-
-              const fileData = byDiscNumber
-                .reduce((accumulator, current) => {
-                  const n = Number(current.get('Track Number'))
-
-                  return accumulator.includes(n) ? accumulator : accumulator.concat(n)
-                }, [])
-                .sort(sortAsNumber)
-                .map((trackNumber) => {
-                  const byTrackNumber = byDiscNumber
-                    .filter((track) => Number(track.get('Track Number')) === trackNumber)
-
-                  const fileData = byTrackNumber
-                    .map((track) => {
-                      const time = parseInt(track.get('Total Time') / 1000, 10) || -1
-                      const name = track.get('Name')
-                      const artist = track.get('Artist')
-                      const file = unescape((track.get('Location') || '').replace('file://', ''))
-
-                      return (
-                        `#EXTINF:${time},${name} - ${artist}\n${file}`
-                      )
-                    })
-
-                  return (
-                    fileData.join('\n')
-                  )
-                })
-
-              writeFile(filePath, `#EXTM3U\n${fileData.join('\n')}\n`, (e) => {
-                if (e) {
-                  console.error(e)
-                }
-              })
-            })
+          writeFile(filePath, `#EXTM3U\n${fileData.join('\n')}\n`, 'utf8', (e) => {
+            if (e) {
+              console.error(e)
+            }
+          })
         })
       })
   }
