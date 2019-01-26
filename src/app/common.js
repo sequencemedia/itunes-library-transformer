@@ -53,8 +53,7 @@ export const filterCompilationAlbums = (track) => (
     track.get('Compilation') === true
   ) &&
   track.has('Album') &&
-  track.has('Disc Number') &&
-  track.has('Track Number')
+  !track.get('Podcast')
 )
 
 export const filterAlbums = (track) => (
@@ -69,8 +68,7 @@ export const filterAlbums = (track) => (
     track.has('Artist')
   ) &&
   track.has('Album') &&
-  track.has('Disc Number') &&
-  track.has('Track Number')
+  !track.get('Podcast')
 )
 
 export const filterPlaylists = (playlist) => !(
