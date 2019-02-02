@@ -4,6 +4,9 @@
 # Mac
 .DS_Store
 
+# Production
+.npmrc
+
 # Development
 *.xml
 /iTunes Library
