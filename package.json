@@ -1,7 +1,6 @@
 {
   "name": "@sequencemedia/itunes-library-transformer",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.2",
   "scripts": {
     "babel": "babel src -d lib",
     "lint": "eslint app.js src",
@@ -23,7 +22,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "@sequencemedia/itunes-library-stream": "github:sequencemedia/itunes-library-stream#master",
+    "@sequencemedia/itunes-library-stream": "0.0.2",
     "fs-extra": "^7.0.1",
     "userhome": "^1.0.0"
   }
