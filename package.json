@@ -3,27 +3,27 @@
   "version": "0.0.3",
   "scripts": {
     "babel": "babel src -d lib",
-    "lint": "eslint app.js src",
+    "lint": "eslint *.js src",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/register": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.12.1",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "@sequencemedia/itunes-library-stream": "0.0.2",
-    "fs-extra": "^7.0.1",
+    "@sequencemedia/itunes-library-stream": "0.0.6",
+    "fs-extra": "^8.1.0",
     "userhome": "^1.0.0"
   }
 }
