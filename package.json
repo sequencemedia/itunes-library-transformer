@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/itunes-library-transformer",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./app.js",
   "engines": {
     "node": ">=12.18.1"
