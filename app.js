@@ -1,9 +1,5 @@
-require('@babel/register')({
-  ignore: [
-    /node_modules\/(?!@sequencemedia)/
-  ]
-})
-
-const { app } = require('./src')
+const {
+  app
+} = require('./lib')
 
 module.exports = app()
