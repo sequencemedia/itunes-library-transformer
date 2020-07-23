@@ -4,9 +4,6 @@
 # Mac
 .DS_Store
 
-# Production
-.npmrc
-
 # Development
 *.xml
 /iTunes Library
@@ -14,3 +11,8 @@
 # Babel
 # lib
 
+# User-defined NPM configuration
+.npmrc
+
+# User-defined NVM configuration
+.nvmrc
