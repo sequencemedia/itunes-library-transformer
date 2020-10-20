@@ -3,7 +3,7 @@
   "version": "0.0.12",
   "main": "./app.js",
   "engines": {
-    "node": ">=12.18.1"
+    "node": ">=12.9.0"
   },
   "scripts": {
     "babel": "babel src -d lib",
@@ -18,11 +18,11 @@
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
-    "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
