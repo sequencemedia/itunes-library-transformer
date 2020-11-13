@@ -3,7 +3,7 @@
   "version": "0.0.12",
   "main": "./app.js",
   "engines": {
-    "node": ">=12.9.0"
+    "node": ">=12.19.0"
   },
   "scripts": {
     "babel": "babel src -d lib",
