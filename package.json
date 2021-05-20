@@ -11,14 +11,14 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@sequencemedia/itunes-library-stream": "^0.0.18",
+    "@sequencemedia/itunes-library-stream": "0.0.18",
     "fs-extra": "^10.0.0",
     "userhome": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.2",
-    "@babel/eslint-parser": "^7.14.2",
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.3",
     "@babel/plugin-proposal-export-default-from": "^7.12.13",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.14.2",
