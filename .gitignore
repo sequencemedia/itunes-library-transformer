@@ -17,5 +17,5 @@
 # User-defined NVM configuration
 .nvmrc
 
-# Development
+# Deps
 .depsrc
