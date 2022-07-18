@@ -11,7 +11,7 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.6",
+    "@babel/runtime": "^7.18.9",
     "@sequencemedia/itunes-library-stream": "0.0.20",
     "fs-extra": "^10.1.0",
     "userhome": "^1.0.0"
