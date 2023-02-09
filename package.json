@@ -2,6 +2,8 @@
   "name": "@sequencemedia/itunes-library-transformer",
   "version": "0.0.17",
   "main": "./app.js",
+  "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
+  "license": "MIT",
   "engines": {
     "node": ">=16.13.0"
   },
