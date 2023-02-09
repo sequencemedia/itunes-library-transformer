@@ -1,4 +1,4 @@
-# @sequencemedia/itunes-library-transformer
+# @sequencemedia/itunes-library-transformer
 
 Implements `@sequencemedia/itunes-library-stream` to transform an `iTunes Library.xml` file to [`m3u`](https://en.wikipedia.org/wiki/M3U) files
 
